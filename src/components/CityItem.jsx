@@ -15,6 +15,7 @@ function CityItem({ city }) {
       <span className={styles.emoji}>{emoji}</span>
       <span className={styles.name}>{cityName}</span>
       <time className={styles.date}>{formateDate(date)} </time>
+      <button className={styles.deleteBtn}>&times;</button>
     </div>
   );
 }

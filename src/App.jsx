@@ -5,6 +5,7 @@ import Product from "./pages/Product";
 import Login from "./pages/Login";
 import AppLayout from "./pages/AppLayout";
 import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -44,7 +45,10 @@ function App() {
               path="cities"
               element={<CityList isLoading={isLoading} cities={cities} />}
             />
-            <Route path="countries" element={<p>countries</p>} />
+            <Route
+              path="countries"
+              element={<CountryList isLoading={isLoading} cities={cities} />}
+            />
             <Route path="form" element={<p>form</p>} />
           </Route>
         </Routes>
