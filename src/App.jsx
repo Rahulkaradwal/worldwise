@@ -9,6 +9,7 @@ import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
 import { CitiesProvider } from "./context/CitiesContext";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="countries" element={<CountryList />} />
               <Route path="form" element={<Form />} />
             </Route>
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </CitiesProvider>
