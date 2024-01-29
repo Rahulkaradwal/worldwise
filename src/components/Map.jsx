@@ -1,12 +1,25 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
-import { Popup, MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import {
+  Popup,
+  MapContainer,
+  TileLayer,
+  Marker,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../context/CitiesContext";
+import { useGeolocation } from "../hooks/useGeolocation";
+import Button from "./Button";
 
 function Map() {
   const { cities } = useCities();
-  const navigate = useNavigate();
+  const {
+    isLoading: isLoadingPosition,
+    position: geolocationPosition,
+    getPosition,
+  } = useGeolocation();
 
   const [mapPosition, setMapPosition] = useState([43.7182412, -79.3780581]);
   const [searchParams] = useSearchParams();
@@ -21,6 +34,7 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
+      <Button type="position">user your location</Button>
       <MapContainer
         center={mapPosition}
         zoom={6}
@@ -37,6 +51,7 @@ function Map() {
           </Marker>
         ))}
         <ChangePosition position={mapPosition} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
@@ -46,6 +61,14 @@ function ChangePosition({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
+}
+
+function DetectClick() {
+  const navigate = useNavigate();
+
+  useMapEvents({
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
 }
 
 export default Map;
