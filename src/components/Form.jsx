@@ -8,6 +8,8 @@ import Button from "./Button";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -22,7 +24,7 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client?";
 function Form() {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const [emoji, setEmoji] = useState("");
 
@@ -31,6 +33,8 @@ function Form() {
   const [geoCodingError, setGeoCodingError] = useState("");
 
   useEffect(() => {
+    if (!mapLat && !mapLng) return;
+
     async function fetchData() {
       try {
         setIsLoadingGeocoding(true);
@@ -58,6 +62,8 @@ function Form() {
   }, [mapLat, mapLng]);
 
   if (isLoadingGeocoding) return <Spinner />;
+  if (!mapLat && !mapLng)
+    return <Message message="Start by clicking on the map" />;
 
   if (geoCodingError) return <Message message={geoCodingError} />;
 
@@ -75,10 +81,14 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
+        /> */}
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
         />
       </div>
 
