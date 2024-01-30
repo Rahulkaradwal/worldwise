@@ -1,42 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
       "cityName": "Toronto",
       "country": "Canada",
       "emoji": "🇵🇹",
@@ -85,27 +49,27 @@
       }
     },
     {
-      "id": "44dc",
-      "cityName": "District 2",
-      "country": "United States of America (the)",
-      "emoji": "🇺🇸",
-      "date": "2024-01-30T01:48:21.741Z",
+      "id": "57fa",
+      "cityName": "Ottawa",
+      "country": "Canada",
+      "emoji": "🇨🇦",
+      "date": "2024-01-30T02:02:18.758Z",
       "notes": "",
       "position": {
-        "lat": "39.61852400697299",
-        "lng": "-80.8615274609362"
+        "lat": "45.354327627766295",
+        "lng": "-75.56396484375001"
       }
     },
     {
-      "id": "f3f3",
-      "cityName": "Valley District",
+      "id": "c3b7",
+      "cityName": "Township of Lincoln",
       "country": "United States of America (the)",
       "emoji": "🇺🇸",
-      "date": "2024-01-30T01:51:09.247Z",
+      "date": "2024-01-30T02:02:24.697Z",
       "notes": "",
       "position": {
-        "lat": "37.97449228419213",
-        "lng": "-81.30287475156005"
+        "lat": "43.520923355275364",
+        "lng": "-84.83642578125001"
       }
     }
   ]
