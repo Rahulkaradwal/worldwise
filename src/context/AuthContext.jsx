@@ -2,6 +2,11 @@ import { createContext, useContext, useReducer } from "react";
 
 const AuthContext = createContext();
 
+const initialState = {
+  user: null,
+  isAuthenticated: false,
+};
+
 const FAKE_USER = {
   name: "Jack",
   email: "jack@example.com",
@@ -9,10 +14,16 @@ const FAKE_USER = {
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
 
-const initialState = {
-  user: null,
-  isAuthenticated: false,
-};
+function reducer(state, action) {
+  switch (action.type) {
+    case "LOGIN":
+      return { ...state, user: action.payload, isAuthenticated: true };
+    case "LOGOUT":
+      return { ...initialState };
+    default:
+      throw new Error("Bad Action Type");
+  }
+}
 
 function AuthProvider({ children }) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
@@ -20,22 +31,11 @@ function AuthProvider({ children }) {
     initialState
   );
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case "LOGIN":
-        return { ...state, user: action.payload, isAuthenticated: true };
-      case "LOGOUT":
-        return { ...initialState };
-      default:
-        throw new Error("Bad Action Type");
-    }
-  }
-
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password) {
       dispatch({
         type: "LOGIN",
-        payload: { email: email, password: password },
+        payload: FAKE_USER,
       });
     }
   }
@@ -45,7 +45,7 @@ function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );
