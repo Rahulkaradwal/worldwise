@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Toronto",
-      "country": "Canada",
-      "emoji": "🇵🇹",
-      "date": "2025-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 43.7182412,
-        "lng": -79.3780581
-      },
-      "id": "98443195"
-    },
-    {
       "id": "f6cf",
       "cityName": "Toronto",
       "country": "Canada",
@@ -70,6 +58,30 @@
       "position": {
         "lat": "43.520923355275364",
         "lng": "-84.83642578125001"
+      }
+    },
+    {
+      "id": "01d9",
+      "cityName": "Flint",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2024-01-31T01:51:06.809Z",
+      "notes": "",
+      "position": {
+        "lat": "43.021480221236835",
+        "lng": "-83.64990234375001"
+      }
+    },
+    {
+      "id": "b08a",
+      "cityName": "Township of Center",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2024-01-31T01:51:55.372Z",
+      "notes": "",
+      "position": {
+        "lat": "40.05130279915315",
+        "lng": "-86.44317626953126"
       }
     }
   ]
