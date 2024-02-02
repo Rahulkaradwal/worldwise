@@ -3,11 +3,12 @@ import styles from "./Login.module.css";
 import PageNav from "./PageNav";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 export default function Login() {
-  // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
+
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -18,14 +19,14 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/app");
+      navigate("/app", { replace: true });
     }
-  }, [email, password]);
+  }, [isAuthenticated, navigate]);
 
   return (
     <main className={styles.login}>
       <PageNav />
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -47,9 +48,7 @@ export default function Login() {
         </div>
 
         <div>
-          <button onClick={handleLogin} type="primary">
-            Login
-          </button>
+          <Button type="primary">Login</Button>
         </div>
       </form>
     </main>

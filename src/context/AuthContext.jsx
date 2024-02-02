@@ -19,7 +19,7 @@ function reducer(state, action) {
     case "LOGIN":
       return { ...state, user: action.payload, isAuthenticated: true };
     case "LOGOUT":
-      return { ...initialState };
+      return { ...state, user: null, isAuthenticated: false };
     default:
       throw new Error("Bad Action Type");
   }
@@ -53,9 +53,9 @@ function AuthProvider({ children }) {
 
 function useAuth() {
   const context = useContext(AuthContext);
-  if (context === undefined) {
+  if (context === undefined)
     throw new Error("useAuth must be used within the AuthProvider");
-  }
+
   return context;
 }
 
